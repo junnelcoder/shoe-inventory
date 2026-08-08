@@ -13,11 +13,9 @@
     --panel-2:#1c1e14;
     --line:#2b2e20;
     --volt:#d7f13a;
-    --volt-dim:#a8c22c;
     --orange:#ff5a1f;
     --text:#f2f2e9;
     --text-dim:#9a9c8c;
-    --danger:#ff4d4d;
     --radius:2px;
   }
   *{box-sizing:border-box;}
@@ -34,7 +32,6 @@
   }
   ::selection{background:var(--volt);color:#0e0f0d;}
 
-  /* ---- Header ---- */
   header{
     padding:36px 5vw 24px;
     border-bottom:1px solid var(--line);
@@ -60,40 +57,12 @@
     letter-spacing:.01em;
   }
   h1 span{color:var(--text-dim);}
-  .stats{
-    display:flex;
-    gap:28px;
-    text-align:right;
-  }
-  .stat-num{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:34px;
-    color:var(--volt);
-    line-height:1;
-  }
-  .stat-label{
-    font-size:10px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--text-dim);
-    margin-top:4px;
-  }
+  .stats{display:flex;gap:28px;text-align:right;}
+  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--volt);line-height:1;}
+  .stat-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-top:4px;}
 
-  /* ---- Toolbar ---- */
-  .toolbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-    padding:20px 5vw;
-  }
-  .search-wrap{
-    position:relative;
-    flex:1;
-    min-width:220px;
-    max-width:420px;
-  }
+  .toolbar{padding:20px 5vw;}
+  .search-wrap{position:relative;max-width:420px;}
   .search-wrap input{
     width:100%;
     background:var(--panel);
@@ -108,44 +77,9 @@
   .search-wrap input:focus{border-color:var(--volt);}
   .search-wrap input::placeholder{color:var(--text-dim);}
 
-  button{
-    font-family:'Archivo',sans-serif;
-    cursor:pointer;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:var(--volt);
-    color:#0e0f0d;
-    border:none;
-    padding:12px 20px;
-    font-weight:800;
-    font-size:12px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    border-radius:var(--radius);
-    transition:transform .12s ease, background .12s ease;
-  }
-  .btn:hover{background:#e6ff6a;}
-  .btn:active{transform:scale(.97);}
-  .btn-outline{
-    background:transparent;
-    color:var(--text);
-    border:1px solid var(--line);
-    padding:11px 18px;
-    font-weight:600;
-    font-size:12px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    border-radius:var(--radius);
-  }
-  .btn-outline:hover{border-color:var(--volt);color:var(--volt);}
-
-  /* ---- Grid ---- */
   .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
     gap:18px;
     padding:0 5vw 40px;
   }
@@ -181,298 +115,36 @@
   .card-media{
     position:relative;
     aspect-ratio:4/3;
-    background:
-      linear-gradient(160deg, var(--panel-2), #101208);
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    background:linear-gradient(160deg, var(--panel-2), #101208);
+    display:flex;align-items:center;justify-content:center;
     overflow:hidden;
   }
-  .card-media img{
-    width:100%;height:100%;object-fit:cover;
-    display:block;
-  }
-  .media-fallback{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:8px;
-    color:var(--text-dim);
-  }
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .media-fallback{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text-dim);}
   .media-fallback svg{width:56px;height:56px;opacity:.5;}
   .media-fallback span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;}
 
-  .img-upload-btn{
-    position:absolute;
-    bottom:10px;right:10px;
-    background:rgba(14,15,13,.75);
-    border:1px solid var(--line);
-    color:var(--text);
-    font-size:10px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    padding:7px 10px;
-    border-radius:var(--radius);
-    backdrop-filter:blur(4px);
-  }
-  .img-upload-btn:hover{border-color:var(--volt);color:var(--volt);}
+  .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .card-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.01em;line-height:1.05;}
+  .card-tag{display:inline-block;margin-top:4px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);font-weight:700;}
+  .qty-total{text-align:right;flex-shrink:0;}
+  .qty-total b{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--volt);display:block;line-height:1;}
+  .qty-total small{font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;}
+  .qty-total.out b{color:var(--text-dim);}
 
-  .rename-hint{
-    position:absolute;
-    left:0;right:0;bottom:0;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    background:rgba(14,15,13,.88);
-    backdrop-filter:blur(4px);
-    border-top:1px solid var(--line);
-    padding:8px 10px;
-    font-size:10px;
-  }
-  .rename-hint .fname{
-    color:var(--volt);
-    font-family:monospace;
-    font-size:11px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-  }
-  .rename-hint .lbl{color:var(--text-dim);letter-spacing:.06em;text-transform:uppercase;}
-  .rename-hint a.download-btn{
-    flex-shrink:0;
-    background:var(--volt);
-    color:#0e0f0d;
-    font-weight:800;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    font-size:10px;
-    padding:6px 10px;
-    border-radius:var(--radius);
-    text-decoration:none;
-  }
-  .rename-hint a.download-btn:hover{background:#e6ff6a;}
-
-  .card-body{
-    padding:16px 18px 18px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    flex:1;
-  }
-  .card-title-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:10px;
-  }
-  .card-title{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:22px;
-    letter-spacing:.01em;
-    line-height:1.05;
-  }
-  .card-tag{
-    display:inline-block;
-    margin-top:4px;
-    font-size:10px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--orange);
-    font-weight:700;
-  }
-  .qty-total{
-    text-align:right;
-    flex-shrink:0;
-  }
-  .qty-total b{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:26px;
-    color:var(--volt);
-    display:block;
-    line-height:1;
-  }
-  .qty-total small{
-    font-size:9px;
-    color:var(--text-dim);
-    letter-spacing:.1em;
-    text-transform:uppercase;
-  }
-
-  .del-shoe{
-    background:none;border:none;color:var(--text-dim);
-    font-size:16px;line-height:1;padding:2px 4px;
-  }
-  .del-shoe:hover{color:var(--danger);}
-
-  table.sizes{
-    width:100%;
-    border-collapse:collapse;
-    font-size:12px;
-  }
+  table.sizes{width:100%;border-collapse:collapse;font-size:12px;}
   table.sizes th{
-    text-align:left;
-    font-size:9px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--text-dim);
-    font-weight:600;
-    padding:0 6px 6px 0;
-    border-bottom:1px solid var(--line);
+    text-align:left;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--text-dim);font-weight:600;padding:0 6px 6px 0;border-bottom:1px solid var(--line);
   }
-  table.sizes td{
-    padding:8px 6px 8px 0;
-    border-bottom:1px solid var(--line);
-    vertical-align:middle;
-  }
+  table.sizes td{padding:8px 6px 8px 0;border-bottom:1px solid var(--line);}
   table.sizes tr:last-child td{border-bottom:none;}
-  .qty-cell{
-    display:flex;
-    align-items:center;
-    gap:6px;
-  }
-  .stepper-btn{
-    width:22px;height:22px;
-    background:var(--panel-2);
-    border:1px solid var(--line);
-    color:var(--text);
-    font-size:13px;
-    display:flex;align-items:center;justify-content:center;
-    border-radius:var(--radius);
-    line-height:1;
-    padding:0;
-  }
-  .stepper-btn:hover{border-color:var(--volt);color:var(--volt);}
-  .qty-val{
-    min-width:20px;
-    text-align:center;
-    font-weight:700;
-    font-variant-numeric:tabular-nums;
-  }
-  .qty-val.zero{color:var(--danger);}
-  .del-size{
-    background:none;border:none;color:var(--text-dim);
-    font-size:14px;padding:0 2px;
-  }
-  .del-size:hover{color:var(--danger);}
+  table.sizes tr.oos td{color:var(--text-dim);}
+  .qty-badge{font-weight:700;text-align:right;display:block;}
+  .qty-badge.zero{color:var(--text-dim);font-weight:500;}
 
-  .add-size-btn{
-    align-self:flex-start;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:none;
-    border:1px dashed var(--line);
-    color:var(--text-dim);
-    font-size:11px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    padding:8px 12px;
-    border-radius:var(--radius);
-    margin-top:2px;
-  }
-  .add-size-btn:hover{border-color:var(--volt);color:var(--volt);}
-
-  /* ---- Add size inline form ---- */
-  .size-form{
-    display:none;
-    grid-template-columns:repeat(4,1fr);
-    gap:6px;
-    margin-top:6px;
-  }
-  .size-form.open{display:grid;}
-  .size-form input{
-    background:var(--panel-2);
-    border:1px solid var(--line);
-    color:var(--text);
-    padding:7px 8px;
-    font-size:11px;
-    border-radius:var(--radius);
-    width:100%;
-  }
-  .size-form-actions{
-    grid-column:1/-1;
-    display:flex;
-    gap:8px;
-    margin-top:2px;
-  }
-  .size-form-actions button{
-    flex:1;
-    padding:8px;
-    font-size:11px;
-    border-radius:var(--radius);
-    border:1px solid var(--line);
-    background:var(--panel-2);
-    color:var(--text);
-  }
-  .size-form-actions .save{background:var(--volt);color:#0e0f0d;border:none;font-weight:800;}
-
-  /* ---- Modal ---- */
-  .modal-backdrop{
-    display:none;
-    position:fixed;inset:0;
-    background:rgba(6,7,4,.75);
-    backdrop-filter:blur(3px);
-    z-index:50;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-  }
-  .modal-backdrop.open{display:flex;}
-  .modal{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    width:100%;
-    max-width:420px;
-    padding:26px;
-    max-height:88vh;
-    overflow-y:auto;
-  }
-  .modal h2{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:28px;
-    margin:0 0 4px;
-  }
-  .modal p.hint{
-    color:var(--text-dim);
-    font-size:12px;
-    margin:0 0 18px;
-  }
-  .field{margin-bottom:14px;}
-  .field label{
-    display:block;
-    font-size:10px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--text-dim);
-    margin-bottom:6px;
-  }
-  .field input{
-    width:100%;
-    background:var(--panel-2);
-    border:1px solid var(--line);
-    color:var(--text);
-    padding:10px 12px;
-    font-size:13px;
-    border-radius:var(--radius);
-  }
-  .field input:focus{outline:none;border-color:var(--volt);}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .modal-actions{
-    display:flex;
-    gap:10px;
-    margin-top:18px;
-  }
-  .modal-actions button{flex:1;}
-
-  footer{
-    text-align:center;
-    color:var(--text-dim);
-    font-size:11px;
-    letter-spacing:.06em;
-    padding:30px 20px 10px;
-  }
+  footer{text-align:center;color:var(--text-dim);font-size:11px;letter-spacing:.06em;padding:30px 20px 10px;}
 
   @media (max-width:520px){
     .stats{gap:18px;}
@@ -488,18 +160,9 @@
     <h1>SOLE <span>LEDGER</span></h1>
   </div>
   <div class="stats">
-    <div>
-      <div class="stat-num" id="statModels">0</div>
-      <div class="stat-label">Models</div>
-    </div>
-    <div>
-      <div class="stat-num" id="statPairs">0</div>
-      <div class="stat-label">Total Pairs</div>
-    </div>
-    <div>
-      <div class="stat-num" id="statSizes">0</div>
-      <div class="stat-label">Size Slots</div>
-    </div>
+    <div><div class="stat-num" id="statModels">0</div><div class="stat-label">Models</div></div>
+    <div><div class="stat-num" id="statPairs">0</div><div class="stat-label">Total Pairs</div></div>
+    <div><div class="stat-num" id="statSizes">0</div><div class="stat-label">Size Slots</div></div>
   </div>
 </header>
 
@@ -507,192 +170,30 @@
   <div class="search-wrap">
     <input id="searchInput" type="text" placeholder="Search model, colorway...">
   </div>
-  <div style="display:flex;gap:10px;">
-    <button class="btn-outline" id="resetBtn" title="Restore original list, clearing your edits">Reset Data</button>
-    <button class="btn" id="addShoeBtn">+ Add Shoe</button>
-  </div>
 </div>
 
 <div class="grid" id="grid"></div>
 <div class="empty-state" id="emptyState" style="display:none;">No shoes match your search.</div>
 
-<footer>Edits save automatically in this browser · Uploading a photo instantly downloads it pre-named to match this page — add that downloaded file to the same GitHub folder as this HTML</footer>
+<footer>Catalog view · photos loaded from /images · updated by the shop admin</footer>
 
-<!-- Add Shoe Modal -->
-<div class="modal-backdrop" id="modalBackdrop">
-  <div class="modal">
-    <h2>Add a Shoe</h2>
-    <p class="hint">Creates a new card. Add sizes to it afterward with the + Size button.</p>
-    <div class="field">
-      <label for="newShoeName">Model / Colorway name</label>
-      <input id="newShoeName" type="text" placeholder="e.g. Nike Dunk Low - Panda">
-    </div>
-    <div class="field">
-      <label for="newShoeImg">Image filename (optional)</label>
-      <input id="newShoeImg" type="text" placeholder="auto-generated from name if left blank">
-    </div>
-    <div class="modal-actions">
-      <button class="btn-outline" id="cancelAddShoe">Cancel</button>
-      <button class="btn" id="confirmAddShoe">Add Shoe</button>
-    </div>
-  </div>
-</div>
+<template id="fallbackTemplate"><div class="media-fallback">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M2 17l2-2 3 2 3-3 3 3 3-3 3 3 3-2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3z"/>
+    <path d="M2 17c0-2 1-4 3-5l2-4c1-2 3-3 5-3h2c1 0 2 .5 2.5 1.5L18 10c2 .5 4 2 4 4"/>
+  </svg>
+  <span>No image yet</span>
+</div></template>
 
+<script src="data.js"></script>
 <script>
-/* ---------------- Data ---------------- */
-const STORAGE_KEY = 'soleLedgerInventory_v1';
-const IMG_OVERRIDE_KEY = 'soleLedgerImageOverrides_v1';
-
-function slugify(str){
-  return str.toLowerCase()
-    .replace(/['’]/g,'')
-    .replace(/[^a-z0-9]+/g,'-')
-    .replace(/^-+|-+$/g,'');
-}
-
-function makeSize(us,uk,eur,cm,qty){
-  return { id: crypto.randomUUID(), us, uk, eur, cm, qty };
-}
-
-const DEFAULT_DATA = [
-  {
-    name: "Nike Dunk Low - Black",
-    sizes: [
-      makeSize("9","8","42.5","27",2),
-      makeSize("9.5","8.5","43","27.5",1),
-      makeSize("10","9","44","28",1),
-      makeSize("10.5","9.5","44.5","28.5",1),
-    ]
-  },
-  {
-    name: "W Nike Dunk Low - Black",
-    sizes: [
-      makeSize("6","3.5","36.5","23",1),
-      makeSize("5.5","3","36","22.5",1),
-    ]
-  },
-  {
-    name: "Nike Dunk Low - Blue",
-    sizes: [
-      makeSize("7.5","6.5","40.5","25.5",1),
-      makeSize("8.5","7.5","42","26.5",1),
-      makeSize("7","6","40","25",1),
-    ]
-  },
-  {
-    name: "W Nike Dunk Low - Blue",
-    sizes: [
-      makeSize("6","3.5","36.5","23",1),
-    ]
-  },
-  {
-    name: "Nike Court Vision",
-    sizes: [
-      makeSize("10","9","44","28",1),
-    ]
-  },
-  {
-    name: "Wmns Air Force 1 '07",
-    sizes: [
-      makeSize("6","3.5","36.5","23",1),
-    ]
-  },
-  {
-    name: "Nike Dunk Low - Green",
-    sizes: [
-      makeSize("8","7","41","26",1),
-      makeSize("6.5","6","39","24.5",1),
-      makeSize("7.5","6.5","40.5","25.5",1),
-    ]
-  },
-  {
-    name: "Air Force 1 '07 WB Brown",
-    sizes: [
-      makeSize("9","8","42.5","27",1),
-      makeSize("8","7","41","26",1),
-    ]
-  },
-  {
-    name: "Air Force 1 '07",
-    sizes: [
-      makeSize("9.5","8.5","43","27.5",1),
-      makeSize("10","9","44","28",1),
-      makeSize("8.5","7.5","42","26.5",2),
-    ]
-  },
-  {
-    name: "Nike S.T. Glow EP",
-    sizes: [
-      makeSize("7.5","6.5","40.5","25.5",1),
-    ]
-  },
-].map(p => ({ id: crypto.randomUUID(), slug: slugify(p.name), ...p }));
-
-/* ---------------- State ---------------- */
-let inventory = loadInventory();
-let imgOverrides = loadOverrides();
-let searchTerm = '';
-
-function loadInventory(){
-  try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(raw) return JSON.parse(raw);
-  }catch(e){ console.warn('Could not load saved inventory', e); }
-  return JSON.parse(JSON.stringify(DEFAULT_DATA));
-}
-function saveInventory(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(inventory));
-}
-function loadOverrides(){
-  try{
-    const raw = localStorage.getItem(IMG_OVERRIDE_KEY);
-    if(raw){
-      const parsed = JSON.parse(raw);
-      let migrated = false;
-      Object.keys(parsed).forEach(k => {
-        // Legacy format from an earlier version stored a plain data-url string.
-        if(typeof parsed[k] === 'string'){
-          parsed[k] = { dataUrl: parsed[k], filename: null };
-          migrated = true;
-        }
-      });
-      if(migrated) localStorage.setItem(IMG_OVERRIDE_KEY, JSON.stringify(parsed));
-      return parsed;
-    }
-  }catch(e){}
-  return {};
-}
-function saveOverrides(){
-  localStorage.setItem(IMG_OVERRIDE_KEY, JSON.stringify(imgOverrides));
-}
-function extFromDataUrl(dataUrl){
-  const m = /^data:image\/([a-zA-Z0-9.+-]+);/.exec(dataUrl || '');
-  if(!m) return 'jpg';
-  let ext = m[1].toLowerCase();
-  if(ext === 'jpeg') ext = 'jpg';
-  if(ext === 'svg+xml') ext = 'svg';
-  return ext;
-}
-function triggerDownload(dataUrl, filename){
-  const a = document.createElement('a');
-  a.href = dataUrl;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
-
-/* ---------------- Rendering ---------------- */
-const grid = document.getElementById('grid');
-const emptyState = document.getElementById('emptyState');
-
 const IMG_EXT_FALLBACKS = ['jpeg','png','webp','JPG','PNG'];
 
 function handleImgError(img){
   let idx = parseInt(img.dataset.extIdx || '0', 10);
   if(idx < IMG_EXT_FALLBACKS.length){
     img.dataset.extIdx = String(idx + 1);
-    img.src = img.dataset.slug + '.' + IMG_EXT_FALLBACKS[idx];
+    img.src = 'images/' + img.dataset.slug + '.' + IMG_EXT_FALLBACKS[idx];
   } else {
     img.onerror = null;
     const fb = document.createElement('div');
@@ -703,53 +204,31 @@ function handleImgError(img){
 }
 window.handleImgError = handleImgError;
 
-function svgFallback(){
-  return `<div class="media-fallback">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M2 17l2-2 3 2 3-3 3 3 3-3 3 3 3-2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3z"/>
-      <path d="M2 17c0-2 1-4 3-5l2-4c1-2 3-3 5-3h2c1 0 2 .5 2.5 1.5L18 10c2 .5 4 2 4 4"/>
-    </svg>
-    <span>No image yet</span>
-  </div>`;
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
+
+let inventory = [];
+let searchTerm = '';
+
+const grid = document.getElementById('grid');
+const emptyState = document.getElementById('emptyState');
 
 function render(){
   grid.innerHTML = '';
   const term = searchTerm.trim().toLowerCase();
   const filtered = inventory.filter(p => p.name.toLowerCase().includes(term));
-
   emptyState.style.display = filtered.length ? 'none' : 'block';
 
   filtered.forEach(product => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.dataset.id = product.id;
 
     const totalQty = product.sizes.reduce((sum,s) => sum + Number(s.qty||0), 0);
-    const rawOverride = imgOverrides[product.id];
-    const overrideDataUrl = rawOverride ? (rawOverride.dataUrl || (typeof rawOverride === 'string' ? rawOverride : null)) : null;
-    const overrideFilename = rawOverride ? (rawOverride.filename || (overrideDataUrl ? (product.slug + '.' + extFromDataUrl(overrideDataUrl)) : null)) : null;
-    const override = overrideDataUrl ? { dataUrl: overrideDataUrl, filename: overrideFilename } : null;
-
-    const imgTag = override
-      ? `<img src="${override.dataUrl}" alt="${escapeHtml(product.name)}">`
-      : `<img src="${product.slug}.jpg" alt="${escapeHtml(product.name)}" data-slug="${product.slug}" data-ext-idx="0" onerror="handleImgError(this)">`;
-
-    const renameHint = override
-      ? `<div class="rename-hint">
-           <span><span class="lbl">Save as</span><br><span class="fname">${escapeHtml(override.filename)}</span></span>
-           <a class="download-btn" href="${override.dataUrl}" download="${escapeHtml(override.filename)}">Download again</a>
-         </div>`
-      : '';
 
     card.innerHTML = `
       <div class="card-media">
-        ${imgTag}
-        ${renameHint}
-        <label class="img-upload-btn">
-          Upload Photo
-          <input type="file" accept="image/*" style="display:none;" data-upload-for="${product.id}">
-        </label>
+        <img src="images/${product.slug}.jpg" alt="${escapeHtml(product.name)}" data-slug="${product.slug}" data-ext-idx="0" onerror="handleImgError(this)">
       </div>
       <div class="card-body">
         <div class="card-title-row">
@@ -757,220 +236,47 @@ function render(){
             <div class="card-title">${escapeHtml(product.name)}</div>
             <span class="card-tag">${product.sizes.length} size${product.sizes.length===1?'':'s'} tracked</span>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:6px;">
-            <div class="qty-total">
-              <b>${totalQty}</b>
-              <small>in stock</small>
-            </div>
-            <button class="del-shoe" title="Remove this shoe" data-del-shoe="${product.id}">✕</button>
+          <div class="qty-total ${totalQty===0?'out':''}">
+            <b>${totalQty}</b>
+            <small>in stock</small>
           </div>
         </div>
-
         <table class="sizes">
-          <thead>
-            <tr><th>US</th><th>UK</th><th>EUR</th><th>CM</th><th style="text-align:right;">Qty</th></tr>
-          </thead>
+          <thead><tr><th>US</th><th>UK</th><th>EUR</th><th>CM</th><th style="text-align:right;">Qty</th></tr></thead>
           <tbody>
             ${product.sizes.map(s => `
-              <tr data-size-id="${s.id}">
+              <tr class="${Number(s.qty)===0?'oos':''}">
                 <td>${escapeHtml(s.us)}</td>
                 <td>${escapeHtml(s.uk)}</td>
                 <td>${escapeHtml(s.eur)}</td>
                 <td>${escapeHtml(s.cm)}</td>
-                <td>
-                  <div class="qty-cell" style="justify-content:flex-end;">
-                    <button class="stepper-btn" data-qty="-1" data-product="${product.id}" data-size="${s.id}">−</button>
-                    <span class="qty-val ${Number(s.qty)===0?'zero':''}">${s.qty}</span>
-                    <button class="stepper-btn" data-qty="1" data-product="${product.id}" data-size="${s.id}">+</button>
-                    <button class="del-size" title="Remove this size" data-del-size="${s.id}" data-product2="${product.id}">✕</button>
-                  </div>
-                </td>
+                <td><span class="qty-badge ${Number(s.qty)===0?'zero':''}">${s.qty===0?'Out':s.qty}</span></td>
               </tr>
             `).join('')}
           </tbody>
         </table>
-
-        <button class="add-size-btn" data-toggle-form="${product.id}">+ Size</button>
-        <div class="size-form" id="form-${product.id}">
-          <input type="text" placeholder="US" data-f="us">
-          <input type="text" placeholder="UK" data-f="uk">
-          <input type="text" placeholder="EUR" data-f="eur">
-          <input type="text" placeholder="CM" data-f="cm">
-          <div class="size-form-actions">
-            <button class="cancel" data-cancel-form="${product.id}">Cancel</button>
-            <button class="save" data-save-form="${product.id}">Add Size</button>
-          </div>
-        </div>
       </div>
     `;
     grid.appendChild(card);
   });
 
-  updateStats();
-}
-
-function updateStats(){
   document.getElementById('statModels').textContent = inventory.length;
   document.getElementById('statPairs').textContent = inventory.reduce((sum,p)=> sum + p.sizes.reduce((s2,sz)=>s2+Number(sz.qty||0),0), 0);
   document.getElementById('statSizes').textContent = inventory.reduce((sum,p)=> sum + p.sizes.length, 0);
 }
 
-function escapeHtml(str){
-  return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-}
-
-/* Hidden template used for image fallback markup */
-const tmpl = document.createElement('template');
-tmpl.id = 'fallbackTemplate';
-tmpl.innerHTML = svgFallback();
-document.body.appendChild(tmpl);
-
-/* ---------------- Event delegation ---------------- */
-grid.addEventListener('click', e => {
-  // Qty stepper
-  const stepBtn = e.target.closest('[data-qty]');
-  if(stepBtn){
-    const delta = Number(stepBtn.dataset.qty);
-    const productId = stepBtn.dataset.product;
-    const sizeId = stepBtn.dataset.size;
-    const product = inventory.find(p => p.id === productId);
-    const size = product.sizes.find(s => s.id === sizeId);
-    size.qty = Math.max(0, Number(size.qty||0) + delta);
-    saveInventory();
-    render();
-    return;
-  }
-
-  // Delete size
-  const delSizeBtn = e.target.closest('[data-del-size]');
-  if(delSizeBtn){
-    const productId = delSizeBtn.dataset.product2;
-    const sizeId = delSizeBtn.dataset.delSize;
-    const product = inventory.find(p => p.id === productId);
-    if(confirm('Remove this size row?')){
-      product.sizes = product.sizes.filter(s => s.id !== sizeId);
-      saveInventory();
-      render();
-    }
-    return;
-  }
-
-  // Delete shoe
-  const delShoeBtn = e.target.closest('[data-del-shoe]');
-  if(delShoeBtn){
-    const productId = delShoeBtn.dataset.delShoe;
-    const product = inventory.find(p => p.id === productId);
-    if(confirm(`Remove "${product.name}" and all its sizes?`)){
-      inventory = inventory.filter(p => p.id !== productId);
-      saveInventory();
-      render();
-    }
-    return;
-  }
-
-  // Toggle add-size form
-  const toggleBtn = e.target.closest('[data-toggle-form]');
-  if(toggleBtn){
-    const form = document.getElementById('form-' + toggleBtn.dataset.toggleForm);
-    form.classList.toggle('open');
-    return;
-  }
-
-  // Cancel form
-  const cancelBtn = e.target.closest('[data-cancel-form]');
-  if(cancelBtn){
-    const form = document.getElementById('form-' + cancelBtn.dataset.cancelForm);
-    form.classList.remove('open');
-    form.querySelectorAll('input').forEach(i => i.value = '');
-    return;
-  }
-
-  // Save new size
-  const saveBtn = e.target.closest('[data-save-form]');
-  if(saveBtn){
-    const productId = saveBtn.dataset.saveForm;
-    const form = document.getElementById('form-' + productId);
-    const vals = {};
-    form.querySelectorAll('input').forEach(i => vals[i.dataset.f] = i.value.trim());
-    if(!vals.us && !vals.uk && !vals.eur && !vals.cm){
-      alert('Fill in at least one size field.');
-      return;
-    }
-    const product = inventory.find(p => p.id === productId);
-    product.sizes.push(makeSize(vals.us||'-', vals.uk||'-', vals.eur||'-', vals.cm||'-', 1));
-    saveInventory();
-    render();
-    return;
-  }
-});
-
-// Image upload override (stored locally in this browser) + rename-to-match hint
-grid.addEventListener('change', e => {
-  const input = e.target.closest('[data-upload-for]');
-  if(!input || !input.files[0]) return;
-  const productId = input.dataset.uploadFor;
-  const product = inventory.find(p => p.id === productId);
-  const file = input.files[0];
-
-  // Keep the original extension the user uploaded, lowercased.
-  const extMatch = file.name.match(/\.([a-zA-Z0-9]+)$/);
-  const ext = extMatch ? extMatch[1].toLowerCase() : 'jpg';
-  const filename = `${product.slug}.${ext}`;
-
-  const reader = new FileReader();
-  reader.onload = () => {
-    imgOverrides[productId] = { dataUrl: reader.result, filename };
-    saveOverrides();
-    render();
-    // Immediately hand the user a copy of the file pre-named to match the
-    // slug this page looks for. A webpage can't write into your GitHub repo
-    // itself, so this download is the file you drag into the repo folder.
-    triggerDownload(reader.result, filename);
-  };
-  reader.readAsDataURL(file);
-  input.value = '';
-});
-
-/* ---------------- Toolbar ---------------- */
 document.getElementById('searchInput').addEventListener('input', e => {
   searchTerm = e.target.value;
   render();
 });
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  if(confirm('Reset to the original starting inventory? This clears all your edits and uploaded photos in this browser.')){
-    inventory = JSON.parse(JSON.stringify(DEFAULT_DATA));
-    imgOverrides = {};
-    saveInventory();
-    saveOverrides();
-    render();
-  }
-});
-
-/* ---------------- Add shoe modal ---------------- */
-const modalBackdrop = document.getElementById('modalBackdrop');
-document.getElementById('addShoeBtn').addEventListener('click', () => {
-  document.getElementById('newShoeName').value = '';
-  document.getElementById('newShoeImg').value = '';
-  modalBackdrop.classList.add('open');
-  document.getElementById('newShoeName').focus();
-});
-document.getElementById('cancelAddShoe').addEventListener('click', () => modalBackdrop.classList.remove('open'));
-modalBackdrop.addEventListener('click', e => { if(e.target === modalBackdrop) modalBackdrop.classList.remove('open'); });
-
-document.getElementById('confirmAddShoe').addEventListener('click', () => {
-  const name = document.getElementById('newShoeName').value.trim();
-  if(!name){ alert('Give the shoe a name first.'); return; }
-  const imgField = document.getElementById('newShoeImg').value.trim();
-  const slug = imgField ? slugify(imgField.replace(/\.(jpg|jpeg|png|webp)$/i,'')) : slugify(name);
-  inventory.push({ id: crypto.randomUUID(), slug, name, sizes: [] });
-  saveInventory();
-  modalBackdrop.classList.remove('open');
-  render();
-});
-
-/* ---------------- Init ---------------- */
-render();
+/* Load published data: inventory.json (written by the admin page) takes
+   priority; if it's missing (e.g. not published yet) fall back to the
+   built-in starter catalog from data.js. */
+fetch('inventory.json', { cache: 'no-store' })
+  .then(res => { if(!res.ok) throw new Error('no inventory.json'); return res.json(); })
+  .then(json => { inventory = normalizeInventory(json); render(); })
+  .catch(() => { inventory = buildDefaultInventory(); render(); });
 </script>
 </body>
 </html>
